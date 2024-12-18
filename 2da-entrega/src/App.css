@@ -60,3 +60,31 @@ body {
   font-family: Arial, sans-serif;
 }
 
+/*Products*/
+
+.product-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-detail {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.product-detail h2 {
+  font-size: 24px;
+}
+
+.product-detail p {
+  font-size: 18px;
+}
+
+
