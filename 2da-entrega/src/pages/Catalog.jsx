@@ -18,8 +18,6 @@ function Catalog() {
           filteredProducts.map(product => (
             <div key={product.id}>
               <ProductCard product={product} />
-              {/* Enlace al detalle del producto */}
-              <Link to={`/product/${product.id}`}>Ver detalles</Link>
             </div>
           ))
         ) : (
