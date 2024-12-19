@@ -5,8 +5,15 @@ import CartWidget from './CartWidget/CartWidget';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Alterna el estado del menú
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Cierra el menú
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   return (
@@ -19,12 +26,15 @@ function Navbar() {
             <a href="#servicios" onClick={toggleMenu}>Artículos</a>
             {isMenuOpen && (
               <ul className="dropdown-menu">
-                <li><Link to="/category/remeras">Remeras</Link></li>
-                <li><Link to="/category/pantalones">Pantalones</Link></li>
+                <li>
+                  <Link to="/category/remeras" onClick={closeMenu}>Remeras</Link>
+                </li>
+                <li>
+                  <Link to="/category/pantalones" onClick={closeMenu}>Pantalones</Link>
+                </li>
               </ul>
             )}
           </li>
-  
           <li><Link to="#contacto">Contacto</Link></li>
         </ul>
       </div>
