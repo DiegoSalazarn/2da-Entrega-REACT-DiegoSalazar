@@ -1,11 +1,20 @@
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-import products from '../products'; 
-import ProductCard from './ProductCard'; 
+import React, { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import products from '../products';
+import ProductCard from './ProductCard';
+
+const validCategories = ['remeras', 'pantalones', 'buzos'];
 
 function Catalog() {
-  const { categoryId } = useParams(); 
-  
+  const { categoryId } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!validCategories.includes(categoryId)) {
+      navigate('/404');
+    }
+  }, [categoryId, navigate]);
+
   const filteredProducts = products.filter(product => product.category === categoryId);
 
   return (
@@ -19,7 +28,7 @@ function Catalog() {
             </div>
           ))
         ) : (
-          <p>No existe ésta categoría</p>
+          <p>No hay productos en esta categoría.</p>
         )}
       </div>
     </div>
