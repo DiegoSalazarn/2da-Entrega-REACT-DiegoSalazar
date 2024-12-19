@@ -74,19 +74,22 @@
   }
   
   .navbar-links li {
-    position: relative; /* Necesario para el posicionamiento del desplegable */
+    position: relative;
   }
   
   .dropdown-menu {
-    display: block; /* Se muestra el menú cuando isMenuOpen es true */
+    display: block;
     position: absolute;
-    top: 100%; /* Para que se muestre debajo del enlace "Articulos" */
+    top: 100%;
     left: 0;
     background-color: white;
     border: 1px solid #ccc;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     padding: 10px 0;
     min-width: 150px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
   
   .dropdown-menu li {
@@ -100,5 +103,11 @@
   }
   
   .dropdown-menu li a:hover {
-    background-color: #f1f1f1; /* Estilo cuando se pasa el ratón por encima */
+    background-color: #f1f1f1;
   }
+  
+  .navbar-links li:hover .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
